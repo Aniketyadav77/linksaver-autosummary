@@ -22,6 +22,8 @@ import {
   Tag
 } from 'lucide-react'
 import { Button } from '../components/ui/button'
+import Header from './Header'
+import Footer from './Footer'
 
 interface FeatureCardProps {
   icon: React.ComponentType<{ className?: string }>
@@ -157,50 +159,7 @@ export const LandingPage = () => {
         ))}
       </div>
 
-      {/* Navigation */}
-      <nav className="relative z-50 p-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-3"
-          >
-            <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-2xl shadow-blue-500/25">
-                <Bookmark className="w-7 h-7 text-white" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-pulse" />
-            </div>
-            <div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
-                LinkSaver
-              </span>
-              <div className="text-xs text-blue-300/80">AI-Powered Bookmarks</div>
-            </div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-4"
-          >
-            <Button
-              onClick={() => router.push('/auth')}
-              variant="outline"
-              className="text-blue-200 hover:text-white hover:bg-blue-900/30"
-            >
-              Sign In
-            </Button>
-            <Button
-              onClick={() => router.push('/auth')}
-              className="px-6 py-3 bg-gradient-to-r from-blue-600/20 to-indigo-700/20 backdrop-blur-md border border-blue-400/30 rounded-xl text-white hover:from-blue-600/30 hover:to-indigo-700/30 transition-all duration-300 flex items-center space-x-2 shadow-xl shadow-blue-500/10"
-            >
-              <span>Get Started</span>
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </motion.div>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative z-10 pt-12 pb-20">
@@ -395,20 +354,7 @@ export const LandingPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 py-12 border-t border-blue-500/30">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
-              <Bookmark className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-xl font-bold text-white">LinkSaver</span>
-          </div>
-          <p className="text-blue-300/70">
-            Built with ❤️ using Next.js, AI, and modern web technologies
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -10,9 +10,9 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'default', size = 'md', ...props }, ref) => {
     const variants = {
-      default: "bg-gradient-to-r from-blue-500/80 to-purple-600/80 hover:from-blue-600/90 hover:to-purple-700/90 text-white border-transparent",
-      glass: "bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md",
-      outline: "border-white/30 hover:bg-white/10 text-white bg-transparent"
+      default: "bg-gradient-to-r from-[rgba(var(--accent-1),0.9)] to-[rgba(var(--accent-2),0.9)] text-white border-transparent shadow-md",
+      glass: "bg-[color:var(--glass-surface)] hover:bg-[rgba(255,255,255,0.06)] text-white border-[color:var(--glass-border)] backdrop-blur-sm",
+      outline: "bg-transparent border-[color:var(--glass-border)] hover:bg-[rgba(255,255,255,0.02)] text-white"
     }
     
     const sizes = {
@@ -24,7 +24,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={cn(
-          "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-transparent disabled:pointer-events-none disabled:opacity-50 border",
+          "inline-flex items-center justify-center rounded-2xl font-medium transition-transform duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[rgba(var(--accent-1),0.45)] disabled:pointer-events-none disabled:opacity-50 border",
           variants[variant],
           sizes[size],
           className
